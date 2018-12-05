@@ -52,6 +52,8 @@ class ClubsController < ApplicationController
         @club.contact_banner_img = nil
       when "club_logo"
         @club.club_logo = nil
+      when "pdf"
+        @club.policies = nil
     end
     if @club.save
       flash[:danger] = "Your picture has been removed."

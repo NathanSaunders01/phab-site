@@ -32,7 +32,7 @@ class Club < ActiveRecord::Base
   validates_attachment_content_type :events_banner_img, content_type: /\Aimage\/.*\z/
   
   has_attached_file :policies
-  validates_attachment :policies, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  validates_attachment_content_type :policies, content_type: "application/pdf"
   
   
   
