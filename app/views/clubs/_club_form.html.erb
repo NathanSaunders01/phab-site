@@ -94,7 +94,7 @@
         </div>
         <div class="form-group">
           <%= f.label :club_logo %>
-          <% if !club.club_logo.blank? %>
+          <% if !club.blank? && !club.club_logo.blank? %>
             <div class="edit-img-container">
               <%= image_tag(club.club_logo.url(:thumb), class:"thumbnail", style:"margin-bottom: 0px !important;") %>
               <%= link_to 'Delete', remove_image_club_path(id: @club.id, item: "club_logo"), method: :put, data: 
@@ -106,7 +106,7 @@
         <hr style="border-top: 1px solid white;"></hr>
         <div class="form-group">
           <%= f.label :bg_image, "Homepage Banner" %>
-            <% if !club.bg_image.blank? %>
+            <% if !club.blank? && !club.bg_image.blank? %>
             <div class="edit-img-container">
               <%= image_tag(club.bg_image.url(:thumb), class:"thumbnail", style:"margin-bottom: 0px !important;") %>
               <%= link_to 'Delete', remove_image_club_path(id: @club.id, item: "bg_image"), method: :put, data: 
@@ -120,7 +120,7 @@
         <hr style="border-top: 1px solid white;"></hr>
         <div class="form-group">
           <%= f.label :news_banner_img, "News Banner" %>
-            <% if !@club.news_banner_img.blank? %>
+            <% if !club.blank? && !@club.news_banner_img.blank? %>
             <div class="edit-img-container">
               <%= image_tag(@club.news_banner_img.url(:thumb), class:"thumbnail", style:"margin-bottom: 0px !important;") %>
               <%= link_to 'Delete', remove_image_club_path(id: @club.id, item: "news_banner_img"), method: :put, data: 
@@ -134,7 +134,7 @@
         <hr style="border-top: 1px solid white;"></hr>
         <div class="form-group">
           <%= f.label :events_banner_img, "Events Banner" %>
-            <% if !club.events_banner_img.blank? %>
+            <% if !club.blank? && !club.events_banner_img.blank? %>
             <div class="edit-img-container">
               <%= image_tag(club.events_banner_img.url(:thumb), class:"thumbnail", style:"margin-bottom: 0px !important;") %>
               <%= link_to 'Delete', remove_image_club_path(id: @club.id, item: "events_banner_img"), method: :put, data: 
@@ -162,7 +162,7 @@
         <hr style="border-top: 1px solid white;"></hr>
         <div class="form-group">
           <%= f.label :contact_banner_img, "Contact Banner" %>
-          <% if !@club.contact_banner_img.blank? %>
+          <% if !club.blank? && !@club.contact_banner_img.blank? %>
             <div class="edit-img-container">
               <%= image_tag(club.contact_banner_img.url(:thumb), class:"thumbnail", style:"margin-bottom: 0px !important;") %>
               <%= link_to 'Delete', remove_image_club_path(id: @club.id, item: "contact_banner_img"), method: :put, data: 
@@ -176,7 +176,7 @@
         <hr style="border-top: 1px solid white;"></hr>
         <div class="form-group">
           <%= f.label :about_banner_img, "About Banner" %>
-          <% if !@club.about_banner_img.blank? %>
+          <% if !club.blank? && !@club.about_banner_img.blank? %>
             <div class="edit-img-container">
               <%= image_tag(club.about_banner_img.url(:thumb), class:"thumbnail", style:"margin-bottom: 0px !important;") %>
               <%= link_to 'Delete', remove_image_club_path(id: @club.id, item: "about_banner_img"), method: :put, data: 

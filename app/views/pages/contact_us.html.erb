@@ -43,10 +43,10 @@
         }
     }
 </style>
-<% if !club.contact_banner_img.blank? %>
+<% if !club.blank? && !club.contact_banner_img.blank? %>
     <%= render partial: "page-header", locals: { bg_img: club.contact_banner_img, title: "Contact Us", color: "#D94240" } %>
 <% end %>
-<div class="container-fluid pipe-container <% if club.contact_banner_img.blank? %>page-show<% end %>" id="container_contact">
+<div class="container-fluid pipe-container <% if !club.blank? && club.contact_banner_img.blank? %>page-show<% end %>" id="container_contact">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-12 col-xs-12">

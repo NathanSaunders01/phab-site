@@ -1,6 +1,6 @@
-<% fb_link = club.facebook_link != "" ? club.facebook_link : "en-gb.facebook.com/PhabCharity/" %>
-<% twitter_link = club.twitter_link != "" ? club.twitter_link : "www.twitter.com/phab_charity?lang=en" %>
-<% donate_link = club.donate_link != "" ? club.donate_link : "www.justgiving.com/onecheckout/donation/direct/charity/2331" %>
+<% fb_link = !club.blank? && club.facebook_link != "" ? club.facebook_link : "en-gb.facebook.com/PhabCharity/" %>
+<% twitter_link = !club.blank? && club.twitter_link != "" ? club.twitter_link : "www.twitter.com/phab_charity?lang=en" %>
+<% donate_link = !club.blank? && club.donate_link != "" ? club.donate_link : "www.justgiving.com/onecheckout/donation/direct/charity/2331" %>
 <style>
   .main-sidebar-block .list .item {
     word-wrap: break-word !important;
@@ -11,16 +11,20 @@
   <div class="main-sidebar-block" id="sidebar_block">
     <div class="contact-block" id="contact_block">
       <ul class="list">
-        <li class="item"><%= club.club_leader %></li>
-        <li class="item"><%= club.contact_number %></li>
-        <li class="item"><%= club.contact_email %></li>
+        <li class="item"><%= !club.blank? && !club.club_leader.blank? ? club.club_leader : "" %></li>
+        <li class="item"><%= !club.blank? && !club.contact_number.blank? ? club.contact_number : "" %></li>
+        <li class="item"><%= !club.blank? && !club.contact_email.blank? ? club.contact_email : "" %></li>
       </ul>
     </div>
     <div class="address-block" id="address_block">
       <ul class="list">
-        <li class="item"><%= club.meeting_time %></li>
-        <% club.split_address.each do |line| %>
-          <li class="item"><%=- line -%></li>
+        <% if !club.blank? && !club.meeting_time.blank? %>
+          <li class="item"><%= club.meeting_time %></li>
+        <% end %>
+        <% if !club.blank? && !club.meeting_address.blank? %>
+          <% club.split_address.each do |line| %>
+            <li class="item"><%=- line -%></li>
+          <% end %>
         <% end %>
       </ul>
     </div>

@@ -16,7 +16,7 @@
         <h1 class="new-home__banner-text--title">Welcome to  
             <span class="club-name">
                 <% if club.blank? %>
-                    CLUB NAME HERE
+                    Phab
                 <% else %>
                     <% if !club.club_name.blank? %>
                         <%= club.club_name %>
@@ -48,7 +48,7 @@
                             <% end %>
                         <% end %>
                     </div>
-                    <% if !club.contact_email.blank? %>
+                    <% if !club.blank? && !club.contact_email.blank? %>
                         <div class="home-row">
                             <div class="home-header">
                                 <h2 style="color: #56A644;">Contact Form</h2>

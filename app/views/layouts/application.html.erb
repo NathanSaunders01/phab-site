@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width">
-    <title>I Am Phab <% if !club.club_name.blank? %> - <%= club.club_name %><% end %></title>
+    <title>Phab <% if !club.blank? && !club.club_name.blank? %> - <%= club.club_name %><% end %></title>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'phab-icon.ico' %>
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
