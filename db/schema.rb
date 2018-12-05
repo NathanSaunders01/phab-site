@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181119002310) do
+ActiveRecord::Schema.define(version: 20181205020412) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -72,6 +72,10 @@ ActiveRecord::Schema.define(version: 20181119002310) do
     t.integer  "contact_banner_img_file_size"
     t.datetime "contact_banner_img_updated_at"
     t.string   "postal_address"
+    t.string   "policies_file_name"
+    t.string   "policies_content_type"
+    t.integer  "policies_file_size"
+    t.datetime "policies_updated_at"
   end
 
   create_table "galleries", force: :cascade do |t|

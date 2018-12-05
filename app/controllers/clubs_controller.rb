@@ -62,7 +62,7 @@ class ClubsController < ApplicationController
     private
     
     def club_params
-       params.require(:club).permit(:club_name, :charity_number, :club_leader, :contact_email, :postal_address, :club_logo, :bg_image, :news_banner_img, :events_banner_img, :gallery_banner_img, :about_banner_img, :contact_banner_img, :bg_position, :contact_number, :meeting_time, :meeting_address, :facebook_link, :twitter_link, :donate_link , :latitude, :longitude) 
+       params.require(:club).permit(:club_name, :charity_number, :club_leader, :contact_email, :postal_address, :policies, :club_logo, :bg_image, :news_banner_img, :events_banner_img, :gallery_banner_img, :about_banner_img, :contact_banner_img, :bg_position, :contact_number, :meeting_time, :meeting_address, :facebook_link, :twitter_link, :donate_link , :latitude, :longitude) 
     end
     
     def set_club

@@ -31,6 +31,9 @@ class Club < ActiveRecord::Base
                     default_url: "/images/:style/missing.png"
   validates_attachment_content_type :events_banner_img, content_type: /\Aimage\/.*\z/
   
+  has_attached_file :policies
+  validates_attachment :policies, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  
   
   
   geocoded_by :meeting_address
