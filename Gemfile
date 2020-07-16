@@ -69,7 +69,7 @@ gem 'figaro', '1.1.1'
 #gem 'dropzonejs-rails'
 
 # Use Geocoder for Google map display
-gem 'geocoder', '1.5.0'
+gem 'geocoder', '1.6.1'
 
 # Use trix for rich text editing
 gem 'trix', '0.11.1'
