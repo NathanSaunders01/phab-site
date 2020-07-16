@@ -1,9 +1,9 @@
-$(document).on("turbolinks:load", function() {
-  $isMobile = ($(window).width() <= 769) ? true : false;
-  $("body").on("click", "#contact_btn", function() {
+$(document).on("turbolinks:load", function () {
+  $isMobile = $(window).width() <= 769 ? true : false;
+  $("body").on("click", "#contact_btn", function () {
     console.log("hello");
     if (isSidebarOpen() && $("#contact_block").is(":visible")) {
-      $("#contact_block").fadeOut("slow");
+      // $("#contact_block").fadeOut("slow");
       closeSidebar();
     } else if (isSidebarOpen() && $("#address_block").is(":visible")) {
       $("#address_block").hide();
@@ -14,9 +14,9 @@ $(document).on("turbolinks:load", function() {
       openSidebar();
     }
   });
-  $("body").on("click", "#address_btn", function() {
+  $("body").on("click", "#address_btn", function () {
     if (isSidebarOpen() && $("#address_block").is(":visible")) {
-      $("#address_block").fadeOut("slow");
+      // $("#address_block").fadeOut("slow");
       closeSidebar();
     } else if (isSidebarOpen() && $("#contact_block").is(":visible")) {
       $("#contact_block").hide();
@@ -26,17 +26,21 @@ $(document).on("turbolinks:load", function() {
       $("#address_block").show();
       openSidebar();
     }
-  })
-  $("body").on("click", "#facebook_btn, #twitter_btn, #donate_btn", function() {
-    if (isSidebarOpen()) {
-      closeSidebar();
-      setTimeout(function() {
-        $("#contact_block, #address_block").hide();
-      }, 500);
+  });
+  $("body").on(
+    "click",
+    "#facebook_btn, #twitter_btn, #donate_btn",
+    function () {
+      if (isSidebarOpen()) {
+        closeSidebar();
+        // setTimeout(function () {
+        //   $("#contact_block, #address_block").hide();
+        // }, 500);
+      }
     }
-  })
+  );
 });
-  
+
 function isSidebarOpen() {
   if ($("#sidebar_block").hasClass("sidebar-open")) {
     return true;
@@ -52,25 +56,25 @@ function isMobile() {
     return false;
   }
 }
-  
+
 function openSidebar() {
   if ($isMobile) {
-     $(".sidebar").css("bottom", "0px");
+    $(".sidebar").css("bottom", "0px");
   } else {
-     $(".sidebar").css("left", "0px")
+    $(".sidebar").css("left", "0px");
   }
- 
+
   $("#sidebar_block").addClass("sidebar-open");
   // $("#icon_bar").css("left", "200px");
 }
-  
+
 function closeSidebar() {
   if ($isMobile) {
-     $(".sidebar").css("bottom", "-200px");
+    $(".sidebar").css("bottom", "-200px");
   } else {
-     $(".sidebar").css("left", "-200px");
+    $(".sidebar").css("left", "-200px");
   }
-  
+
   $("#sidebar_block").removeClass("sidebar-open");
   // $("#icon_bar").css("left", "0");
 }
