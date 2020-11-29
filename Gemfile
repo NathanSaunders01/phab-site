@@ -76,6 +76,10 @@ gem 'trix', '0.11.1'
 
 # Use MailForm for contact form page
 gem 'mail_form', '1.7.1'
+
+# Use sendgrid for contact form page
+gem 'sendgrid-ruby'
+
 group :development, :test do
   # # Use sqlite3 as the database for Active Record
   # gem 'sqlite3'
