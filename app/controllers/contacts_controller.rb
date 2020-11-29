@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
     # @contact = Contact.new(params[:contact])
     # @contact.request = request
     from = Email.new(email: 'test@example.com')
-    to = Email.new(email: 'test@example.com')
+    to = Email.new(email: 'nathan_saunders@hotmail.co.uk')
     subject = 'Sending with SendGrid is Fun'
     content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
     mail = Mail.new(from, subject, to, content)
