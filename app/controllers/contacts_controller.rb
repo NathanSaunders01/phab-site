@@ -21,7 +21,7 @@ class ContactsController < ApplicationController
     mail.from = from
     mail.to = to
     mail.subject = subject
-    mail.contents = content
+    mail.content = content
     
     # mail = Mail.new(from, subject, to, content)
 
