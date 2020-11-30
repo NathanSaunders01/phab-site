@@ -10,10 +10,12 @@ class ContactsController < ApplicationController
   def create
     # @contact = Contact.new(params[:contact])
     # @contact.request = request
-    from = Email.new(email: 'test@example.com')
+    club = Club.first
+    from = Email.new(email: 'nathan_saunders@hotmail.co.uk')
     to = Email.new(email: 'nathan_saunders@hotmail.co.uk')
-    subject = 'Sending with SendGrid is Fun'
-    content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
+    subject = "You have a message from Phab #{club.club_name}"
+    text = "Email: #{params[:contact][:email]}\n\nMessage: #{params[:contact][:message]}"
+    content = Content.new(type: 'text/plain', value:text)
     mail = Mail.new(from, subject, to, content)
 
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
