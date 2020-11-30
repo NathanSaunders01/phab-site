@@ -11,19 +11,13 @@ class ContactsController < ApplicationController
     # @contact = Contact.new(params[:contact])
     # @contact.request = request
     club = Club.first
-    mail = Mail.new
     from = Email.new(email: 'nathan_saunders@hotmail.co.uk', name: "Nathan Saunders")
     to = Email.new(email: 'nathan_saunders@hotmail.co.uk')
     subject = "You have a message from Phab #{club.club_name}"
     text = "Email: #{params[:contact][:email]}\n\nMessage: #{params[:contact][:message]}"
     content = Content.new(type: 'text/plain', value:text)
     
-    mail.from = from
-    mail.to = to
-    mail.subject = subject
-    mail.content = content
-    
-    # mail = Mail.new(from, subject, to, content)
+    mail = SendGrid::Mail.new(from, subject, to, content)
 
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
     response = sg.client.mail._('send').post(request_body: mail.to_json)
