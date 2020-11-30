@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
     # @contact.request = request
     club = Club.first
     from = Email.new(email: 'nathan_saunders@hotmail.co.uk', name: "Nathan")
-    to = Email.new(email: 'nathan_saunders@hotmail.co.uk')
+    to = Email.new(email: 'nathandotsaunders@gmail.com')
     subject = "You have a message from Phab #{club.club_name}"
     text = "Email: #{params[:contact][:email]}\n\nMessage: #{params[:contact][:message]}"
     content = Content.new(type: 'text/plain', value:text)
