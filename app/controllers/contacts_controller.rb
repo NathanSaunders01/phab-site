@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
     # @contact = Contact.new(params[:contact])
     # @contact.request = request
     club = Club.first
-    from = Email.new(email: 'nathan_saunders@hotmail.co.uk')
+    from = Email.new(email: 'nathan_saunders@hotmail.co.uk', name: "Nathan Saunders")
     to = Email.new(email: 'nathan_saunders@hotmail.co.uk')
     subject = "You have a message from Phab #{club.club_name}"
     text = "Email: #{params[:contact][:email]}\n\nMessage: #{params[:contact][:message]}"
@@ -23,6 +23,7 @@ class ContactsController < ApplicationController
     puts response.status_code
     puts response.body
     puts response.headers
+    puts mail.to_json
     # if @contact.deliver
     #   flash[:success] = 'Your message sent successfully!'
     #   redirect_to root_path
